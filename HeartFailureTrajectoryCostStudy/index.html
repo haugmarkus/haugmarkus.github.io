@@ -156,7 +156,8 @@ pre code {
 
 
 
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Converted document</title></head><body>
+<!-- Converted via https://products.groupdocs.app/conversion/svg-to-html>
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>Converted document</title></head><body>
 <!-- Generator: Adobe Illustrator 26.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 779.18 105.88" style="enable-background:new 0 0 779.18 105.88;" xml:space="preserve">
 <style type="text/css">
@@ -665,7 +666,7 @@ pre code {
 </div>
 <div id="abstract" class="section level1">
 <h1>4. Abstract</h1>
-<p>Electronically stored medical records offer a rich source of data for investigating treatment trajectories and identifying best practices in healthcare. These trajectories, which consist of medical interventions, give us a foundation to evaluate the economics of treatment patterns and model the treatment paths. The aim of this work is to introduce a technical solution for the aforementioned tasks. The work of two R-packages will be presented. The packages use OHDSI OMOP CDM cohorts to construct treatment trajectories and implement these to compose Markov models.</p>
+<p>Real-world health data (RWD) has the potential to transform health economic research providing more accurate and representative models of treatment practice and outcomes. To facilitate the adoption of RWD for health economic modelling, we have created two R-packages to learn and evaluate Markov models on OMOP CDM formatted data sources. This will allow to learn such model in easily distributable, transparent and reproducible manner. To demonstrate the utility of the approach we are conducting a federated network study to replicate a published Markov model for the progression of heart failure. The goals of the study are to explore the variability of the resulting models and associated costs, the effect these differences have for the economic analysis and the ways how we can integrate the information from multiple sources.</p>
 </div>
 <div id="amendments-and-updates" class="section level1">
 <h1>5. AMENDMENTS AND UPDATES</h1>
@@ -692,17 +693,17 @@ pre code {
 </div>
 <div id="rationale-and-backround" class="section level1">
 <h1>6. RATIONALE AND BACKROUND</h1>
-<p>In 2020 Thokala <em>et al</em> published a paper<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> on a <a href="https://doi.org/10.1016/j.jval.2020.02.012">heart failure study</a>, where they modelled patients’ observational health data with Markov Chains and used cost-effectiveness analysis to determine whether Telemonitoring (TM) would be a feasible new treatment in comparison of the standard of care (SoC). In the paper they were contingent on transparent methods for making important medical decisions (whether or not start using TM in treatment). This motivated the authors to develop tools for running such studies on OMOP CDM data having the goal to make such studies easily distributable, transparent and reproducible. Now we have undergone and developed two R-packages which will help to reproduce such studies on OMOP CDM and wish to create a pilot trial using the same structure as published by Thokala <em>et al</em>. This trial would provide valuable insights that would aid in the ongoing development of the packages.</p>
-<p>Heart failure (HF) currently accounts for 1% to 2% of the annual healthcare budget in most developed countries and is associated with high levels of morbidity and mortality. TM can facilitate early detection of clinically significant changes and earlier intervention to restabilize the syndrome and prevent emergency admissions. There have been studies of cost-effectiveness of TM compared with usual care for HF, estimated using modeling, to help decision makers assess value for money.</p>
-<p>A range of modeling techniques have been used, but cohort-based Markov models have been the most commonly used methods in health technology assessment, as they are relatively simple to develop, debug, analyze, and communicate<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Markov models are described in terms of the conditions that individuals can be in (“health states”), how they can move between such states (“transitions”), and how likely such moves are (“transition probabilities”) within a given time period (“cycle length”).</p>
-<p>Markov models can be specified in a number of different ways using different choices of state definitions, one of the possibilities, clinical measures, are frequently used. The OHDSI community and data partners also store much medical data which could be used for developing similar models. Therefore it makes much sense to develop such tool for OMOP CDM. We are packaging the study and creating an opportunity for all data partners with HF data to run the same study. The aforementioned R-packages are very handy for conducting such studies and could be used to enforce such studies for the OHDSI OMOP community in the future.</p>
+<p>A range of modeling techniques have been used in health economics research, but cohort-based Markov models have been the most commonly used methods in health technology assessment, as they are relatively simple to develop, debug, analyze, and communicate<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Markov models are described in terms of the conditions that individuals can be in (“health states”), how they can move between such states (“transitions”), and how likely such moves are (“transition probabilities”) within a given time period (“cycle length”).</p>
+<p>The models are typically created based on published information on event frequencies, but sometimes information from real world cohorts is used as well. To get more appropriate approximation of the situation in particular locations, real-world data should be used much more. Data sources in OMOP CDM offer a great opportunity to learn the models in this manner. Therefore we developed R packages for developing Markov models on OMOP formatted datasets. The packages build a layer on top of the current OMOP infrastructure of building cohorts (as “health states”) and connecting to the OMOP database to learn such models. We have also created a Shiny app to pool together the results from multiple data sources and enable comparison of those.</p>
+<p>The study we replicate was published by <a href="https://doi.org/10.1016/j.jval.2020.02.012">Thokala <em>et al</em> in 2020<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></a> on heart failure. This paper modelled patients’ observational health data with Markov Chains and used cost-effectiveness analysis to determine whether Telemonitoring (TM) would be a feasible new treatment in comparison of the standard of care (SoC). In the paper they were contingent on transparent methods for making important medical decisions (whether or not start using TM in treatment). The goal of the original study was to demonstrate that real world datasets can provide evidence for economic modelling. In this study we go one step further showing that we can learn the models in a network of real world data sources, while being transparent and reproducible in methods, phenotype definitions and results. This study would provide valuable insights that would aid in the ongoing development of the packages.</p>
+<p>Heart failure (HF) currently accounts for 1% to 2% of the annual healthcare budget in most developed countries and is associated with high levels of morbidity and mortality. TM can facilitate early detection of clinically significant changes and earlier intervention to re-stabilize the syndrome and prevent emergency admissions. There have been studies of cost-effectiveness of TM compared with usual care for HF, estimated using modeling, to help decision makers assess value for money. Here we want to see how much the model conclusions change depending on where the model parameters are learned.</p>
 </div>
 <div id="research-questions-and-objectives" class="section level1">
 <h1>7. RESEARCH QUESTIONS AND OBJECTIVES</h1>
 <p>The aim of this study is to model the comparative heart failure patients’ movement between the disease acuteness states via health trajectories built by R package <a href="https://github.com/HealthInformaticsUT/Cohort2Trajectory"><em>Cohort2Trajectory</em></a>. The Markov Chain modelling and monetary analysis of the states will be conducted by the R package <a href="https://github.com/HealthInformaticsUT/TrajectoryMarkovAnalysis"><em>TrajectoryMarkovAnalysis</em></a>.</p>
 <p>Specifically, the study has the following objectives:</p>
 <ol style="list-style-type: decimal">
-<li><p>Comparing and assessing heart failure Markov Chains and treatment costs between data partners.</p></li>
+<li><p>Comparing and assessing heart failure Markov chains and treatment costs between data partners.</p></li>
 <li><p>Assessing whether or not telemonitoring would be a feasible alternative treatment method to the standard of care.</p></li>
 <li><p>Introduce the method packages Cohort2Trajectory and TrajectoryMarkovAnalysis to the OHDSI community.</p></li>
 </ol>
@@ -854,8 +855,8 @@ pre code {
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Developing Markov Models From Real-World Data: A Case Study of Heart Failure Modeling Using Administrative Data<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Modeling good research practices—overview: a report of the ISPOR-SMDM Modeling Good Research Practices Task Force–1<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Modeling good research practices—overview: a report of the ISPOR-SMDM Modeling Good Research Practices Task Force–1<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Developing Markov Models From Real-World Data: A Case Study of Heart Failure Modeling Using Administrative Data<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
